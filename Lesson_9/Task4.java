@@ -12,11 +12,11 @@ import java.util.Scanner;
 
 public class Task4 {
     public static void main(String[] args) {
-        String sentence = "one two three five six seven eight nine ten";
+        String sentence = "ono two three five six seven eight nine ten 11";
         String[] words = sentence.split(" ");
         System.out.println(words.length);
 
-        int elementNumber = getElementNumber();
+        int elementNumber = getElementNumber(words.length);
         String word = words[elementNumber];
 
         if (word.equals(new StringBuilder(word).reverse().toString())) {
@@ -27,18 +27,17 @@ public class Task4 {
     }
 
 
-    private static int getElementNumber() {
+    private static int getElementNumber(int arrayLength) {
         while (true) {
-            Scanner scanner = new Scanner(System.in);
+
             System.out.print("Enter number of element (word): ");
-
+            Scanner scanner = new Scanner(System.in);
             int elementNumber = scanner.nextInt();
-            if (elementNumber < 9) {  //how can I use WORDS.LENGTH instead number 9
-                return elementNumber;
+            if (elementNumber <= arrayLength ) {
+                return elementNumber - 1;
             }
-            System.out.println ("There are only " + 9 + " words in the sentence");//how can I use WORDS.LENGTH instead number 9
+            System.out.println ("There are only " + arrayLength + " words in the sentence");
         }
-
     }
 }
 
